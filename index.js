@@ -3,6 +3,7 @@ import axios from "axios";
 
 // The breed selection input element.
 const breedSelect = document.getElementById("breedSelect");
+console.log("breed select el" + breedSelect);
 // The information section div element.
 const infoDump = document.getElementById("infoDump");
 // The progress bar div element.
@@ -26,7 +27,7 @@ const API_KEY =
 async function initialLoad() {
   try {
     const response = await fetch(
-      `https://api.thecatapi.com/v1/breeds?api_key=${API_KEY}`
+      `https://api.thecatapi.com/v1/breeds?api_key=${API_KEY}`,
     );
     if (!response.ok) {
       throw new Error("Bad Status");
@@ -63,7 +64,7 @@ initialLoad();
 async function getBreed(breedId) {
   try {
     const response = await fetch(
-      `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${breedId}&api_key=${API_KEY}`
+      `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${breedId}&api_key=${API_KEY}`,
     );
     console.log(response);
     if (!response.ok) {
